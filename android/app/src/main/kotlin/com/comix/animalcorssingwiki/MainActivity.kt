@@ -1,0 +1,6 @@
+package com.comix.animalcorssingwiki
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
