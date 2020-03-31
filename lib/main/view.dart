@@ -28,9 +28,9 @@ Widget buildView(
                 onTap: () {
                   dispatch(HomeScreenActionCreator.showFish());
                 },
-                child: Image.asset('images/ic_fish.png', fit: BoxFit.cover),
+                child: Image.asset('images/ic_fish.png', fit: BoxFit.scaleDown),
               ),
-              color: Colors.amber[100],
+              color: Color(0xff76acda),
             ),
             Card(
               child: InkWell(
@@ -38,9 +38,9 @@ Widget buildView(
                   dispatch(HomeScreenActionCreator.showBug());
                 },
                 child:
-                    Image.asset('images/ic_butterfly.png', fit: BoxFit.cover),
+                    Image.asset('images/ic_butterfly.png', fit: BoxFit.scaleDown),
               ),
-              color: Colors.amber[200],
+              color: Color(0xff92b05a),
             ),
           ],
         )

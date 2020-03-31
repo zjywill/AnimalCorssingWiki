@@ -14,7 +14,7 @@ Widget buildView(
       backgroundColor: Color(0xff97cedb),
       appBar: AppBar(
         backgroundColor: Color(0xff7bc094),
-        title: const Text('Animal Corssing: Fish'),
+        title: const Text('Animal Corssing: Bugs'),
       ),
       body: Container(
           child: Column(children: <Widget>[
