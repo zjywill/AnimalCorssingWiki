@@ -10,7 +10,7 @@ Widget createApp() {
     pages: <String, Page<Object, dynamic>>{
       'home_screen': HomeScreenPage(),
       'fish_screen': FishScreenPage(),
-      'bug_screen': BugScreenPage(),
+      'bug_screen': BugsScreenPage(),
     },
   );
 

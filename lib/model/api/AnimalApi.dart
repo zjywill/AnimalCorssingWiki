@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:animalcorssingwiki/model/pojo/Bug.dart';
 import 'package:animalcorssingwiki/model/pojo/Fish.dart';
 
 import 'dart:async';
@@ -28,14 +29,14 @@ class AnimalApi {
     }
   }
 
-  Future<Fish> fetchBug(pole) async {
+  Future<Bug> fetchBug(pole) async {
     log('pole: $pole');
     final response =
     await http.get('http://li.zerob13.com:8080/function/ac/$pole/bug');
     log('fetchBug response $response');
     if (response.statusCode == 200) {
       log('fetchBug response 200');
-      return Fish.fromJson(json.decode(response.body));
+      return Bug.fromJson(json.decode(response.body));
     } else {
       log('fetchBug Failed');
       throw Exception('Failed to fetch Bug');

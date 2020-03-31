@@ -1,11 +1,12 @@
+import 'package:animalcorssingwiki/model/pojo/BugData.dart';
 import 'package:animalcorssingwiki/model/pojo/FishData.dart';
 import 'package:flutter/material.dart';
 
-class FishDetail extends Dialog {
-  FishData fishData;
+class BugDetail extends Dialog {
+  BugData data;
   bool southern = false;
 
-  FishDetail({Key key, @required this.fishData, @required this.southern})
+  BugDetail({Key key, @required this.data, @required this.southern})
       : super(key: key);
 
   @override
@@ -15,7 +16,7 @@ class FishDetail extends Dialog {
 
     RoundedRectangleBorder _defaultDialogShape = RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(24.0)),
-        side: BorderSide(width: 2, color: Colors.black));
+        side: BorderSide(width: 2, color: Color(0xff75953c)));
 
     return AnimatedPadding(
       padding: MediaQuery.of(context).viewInsets +
@@ -34,13 +35,13 @@ class FishDetail extends Dialog {
             height: 480,
             child: Material(
               elevation: 24.0,
-              color: Color(0xff76acda),
+              color: Color(0xff92b05a),
               type: MaterialType.card,
               child: Column(
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(top: 16),
-                    child: Text(fishData.name,
+                    child: Text(data.name,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 24,
@@ -52,9 +53,9 @@ class FishDetail extends Dialog {
                       width: 290,
                       height: 100,
                       alignment: Alignment.center,
-                      child: Image.network(fishData.image),
+                      child: Image.network(data.image),
                       decoration: BoxDecoration(
-                          color: Color(0xffbed5fd),
+                          color: Color(0xfff0e6b5),
                           border: Border.all(width: 2.0, color: Colors.white),
                           borderRadius: BorderRadius.all(Radius.circular(24))),
                     ),
@@ -71,8 +72,8 @@ class FishDetail extends Dialog {
                       margin: EdgeInsets.only(top: 2, left: 11, right: 11),
                       child: Row(
                         children: <Widget>[
-                          buildItemContent(fishData.location, 0),
-                          buildItemContent(fishData.price, 10)
+                          buildItemContent(data.location, 0),
+                          buildItemContent(data.price, 10)
                         ],
                       )),
                   Container(
@@ -80,18 +81,16 @@ class FishDetail extends Dialog {
                       child: Row(
                         children: <Widget>[
                           buildItemTitle("Time of Day", 0),
-                          buildItemTitle("Shadow Size", 10)
                         ],
                       )),
                   Container(
                       margin: EdgeInsets.only(top: 2, left: 11, right: 11),
                       child: Row(
                         children: <Widget>[
-                          buildItemContent(fishData.time, 0),
-                          buildItemContent(fishData.shadowSize, 10)
+                          buildItemContent(data.time, 0),
                         ],
                       )),
-                  buildYearGrid(fishData)
+                  buildYearGrid(data)
                 ],
               ),
               shape: _defaultDialogShape,
@@ -114,7 +113,7 @@ class FishDetail extends Dialog {
                 fontSize: 16,
                 fontWeight: FontWeight.bold)),
         decoration: BoxDecoration(
-            color: Color(0xffb1d1ed),
+            color: Color(0xffbad38b),
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(12), topRight: Radius.circular(12))));
   }
@@ -138,7 +137,7 @@ class FishDetail extends Dialog {
                 bottomRight: Radius.circular(12))));
   }
 
-  Widget buildYearGrid(FishData fishData) {
+  Widget buildYearGrid(BugData data) {
     return Container(
       height: 160,
       margin: EdgeInsets.only(top: 4, left: 11, right: 11),
@@ -148,37 +147,37 @@ class FishDetail extends Dialog {
             //b0e0e6   98fb98  adff2f   d2b48c
             children: <Widget>[
               buildYearGridItem(
-                  "Jan", fishData.jan, southern ? 0xffb0e0e6 : 0xffadff2f),
+                  "Jan", data.jan, southern ? 0xffb0e0e6 : 0xffadff2f),
               buildYearGridItem(
-                  "Feb", fishData.feb, southern ? 0xffb0e0e6 : 0xffadff2f),
+                  "Feb", data.feb, southern ? 0xffb0e0e6 : 0xffadff2f),
               buildYearGridItem(
-                  "Mar", fishData.mar, southern ? 0xff98fb98 : 0xffd2b48c),
+                  "Mar", data.mar, southern ? 0xff98fb98 : 0xffd2b48c),
               buildYearGridItem(
-                  "Apr", fishData.apr, southern ? 0xff98fb98 : 0xffd2b48c),
+                  "Apr", data.apr, southern ? 0xff98fb98 : 0xffd2b48c),
             ],
           ),
           Row(
             children: <Widget>[
               buildYearGridItem(
-                  "May", fishData.may, southern ? 0xff98fb98 : 0xffd2b48c),
+                  "May", data.may, southern ? 0xff98fb98 : 0xffd2b48c),
               buildYearGridItem(
-                  "Jun", fishData.jun, southern ? 0xffadff2f : 0xffb0e0e6),
+                  "Jun", data.jun, southern ? 0xffadff2f : 0xffb0e0e6),
               buildYearGridItem(
-                  "Jul", fishData.jul, southern ? 0xffadff2f : 0xffb0e0e6),
+                  "Jul", data.jul, southern ? 0xffadff2f : 0xffb0e0e6),
               buildYearGridItem(
-                  "Aug", fishData.aug, southern ? 0xffadff2f : 0xffb0e0e6),
+                  "Aug", data.aug, southern ? 0xffadff2f : 0xffb0e0e6),
             ],
           ),
           Row(
             children: <Widget>[
               buildYearGridItem(
-                  "Sep", fishData.sep, southern ? 0xffd2b48c : 0xff98fb98),
+                  "Sep", data.sep, southern ? 0xffd2b48c : 0xff98fb98),
               buildYearGridItem(
-                  "Oct", fishData.oct, southern ? 0xffd2b48c : 0xff98fb98),
+                  "Oct", data.oct, southern ? 0xffd2b48c : 0xff98fb98),
               buildYearGridItem(
-                  "Nov", fishData.nov, southern ? 0xffd2b48c : 0xff98fb98),
+                  "Nov", data.nov, southern ? 0xffd2b48c : 0xff98fb98),
               buildYearGridItem(
-                  "Sep", fishData.sep, southern ? 0xffb0e0e6 : 0xffadff2f)
+                  "Sep", data.sep, southern ? 0xffb0e0e6 : 0xffadff2f)
             ],
           ),
         ],
