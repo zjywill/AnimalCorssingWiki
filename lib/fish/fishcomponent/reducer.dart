@@ -5,9 +5,7 @@ import 'state.dart';
 
 Reducer<FishItemState> buildReducer() {
   return asReducer(
-    <Object, Reducer<FishItemState>>{
-      FishItemAction.action: _onAction,
-    },
+    <Object, Reducer<FishItemState>>{},
   );
 }
 

@@ -1,10 +1,10 @@
+import 'package:animalcorssingwiki/model/pojo/FishData.dart';
 import 'package:fish_redux/fish_redux.dart';
 
-//TODO replace with your own action
-enum FishItemAction { action }
+enum FishItemAction { showDetail }
 
 class FishItemActionCreator {
-  static Action onAction() {
-    return const Action(FishItemAction.action);
+  static Action showDetail(FishData fishData) {
+    return Action(FishItemAction.showDetail, payload: fishData);
   }
 }

@@ -1,4 +1,5 @@
 import 'package:animalcorssingwiki/bug/page.dart';
+import 'package:animalcorssingwiki/fish/fishdetail/FishDetail.dart';
 import 'package:animalcorssingwiki/fish/page.dart';
 import 'package:animalcorssingwiki/main/page.dart';
 import 'package:fish_redux/fish_redux.dart';

@@ -7,6 +7,10 @@ import 'state.dart';
 Widget buildView(
     FishItemState state, Dispatch dispatch, ViewService viewService) {
   return Container(
+      child: InkWell(
+    onTap: () {
+      dispatch(FishItemActionCreator.showDetail(state.fishData));
+    },
     child: Image.network(state.fishData.image),
-  );
+  ));
 }
