@@ -5,13 +5,15 @@ import 'package:fish_redux/fish_redux.dart';
 class FishScreenState extends MutableSource
     implements Cloneable<FishScreenState> {
   bool loading;
+  int selectIndex;
   List<FishItemState> list;
 
   @override
   FishScreenState clone() {
     return FishScreenState()
       ..list = list
-      ..loading = loading;
+      ..loading = loading
+      ..selectIndex = selectIndex;
   }
 
   @override
@@ -34,5 +36,7 @@ class FishScreenState extends MutableSource
 }
 
 FishScreenState initState(Map<String, dynamic> args) {
-  return FishScreenState()..loading = true;
+  return FishScreenState()
+    ..loading = true
+    ..selectIndex = 0;
 }

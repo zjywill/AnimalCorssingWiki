@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:animalcorssingwiki/model/api/AnimalApi.dart';
 import 'package:animalcorssingwiki/model/pojo/Fish.dart';
 import 'package:animalcorssingwiki/model/pojo/FishData.dart';
@@ -9,6 +11,7 @@ Effect<FishScreenState> buildEffect() {
   return combineEffects(<Object, Effect<FishScreenState>>{
     Lifecycle.initState: _init,
     FishScreenAction.onRefresh: _onRefresh,
+    FishScreenAction.selectChange: _selectChange
   });
 }
 
@@ -21,6 +24,17 @@ void _onRefresh(Action action, Context<FishScreenState> ctx) async {
   String pole = "northern";
   if (action.payload != null) {
     pole = action.payload ?? String;
+  }
+  ctx.dispatch(FishScreenActionCreator.onPopulated(await getFish(pole)));
+}
+
+void _selectChange(Action action, Context<FishScreenState> ctx) async {
+  String pole = "northern";
+  if (action.payload != null) {
+    int selectIndex = action.payload ?? int;
+    pole = selectIndex == 1 ? "southern" : "northern";
+    log("pole: $pole");
+    ctx.state.selectIndex = selectIndex;
   }
   ctx.dispatch(FishScreenActionCreator.onPopulated(await getFish(pole)));
 }
