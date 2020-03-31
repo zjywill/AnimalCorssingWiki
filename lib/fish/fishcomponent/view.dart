@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(FishItemState state, Dispatch dispatch, ViewService viewService) {
-  return Container();
+Widget buildView(
+    FishItemState state, Dispatch dispatch, ViewService viewService) {
+  return Container(
+    child: Image.network(state.fishData.image),
+  );
 }

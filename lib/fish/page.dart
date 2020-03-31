@@ -1,3 +1,4 @@
+import 'package:animalcorssingwiki/fish/fishadapter/adapter.dart';
 import 'package:fish_redux/fish_redux.dart';
 
 import 'effect.dart';
@@ -13,7 +14,7 @@ class FishScreenPage extends Page<FishScreenState, Map<String, dynamic>> {
             reducer: buildReducer(),
             view: buildView,
             dependencies: Dependencies<FishScreenState>(
-                adapter: null,
+                adapter: NoneConn<FishScreenState>() + FishAdapterAdapter(),
                 slots: <String, Dependent<FishScreenState>>{
                 }),
             middleware: <Middleware<FishScreenState>>[
