@@ -13,6 +13,7 @@ Reducer<BugsScreenState> buildReducer() {
   return asReducer(
     <Object, Reducer<BugsScreenState>>{
       BugsScreenAction.onPopulated: _onPopulated,
+      BugsScreenAction.updateSelect: _updateSelect,
     },
   );
 }
@@ -32,6 +33,13 @@ BugsScreenState _onPopulated(BugsScreenState state, Action action) {
     }
     newState.list = list;
   }
+  newState.loading = false;
+  return newState;
+}
 
+BugsScreenState _updateSelect(BugsScreenState state, Action action) {
+  final BugsScreenState newState = state.clone();
+  log("_updateSelect: " + state.selectIndex.toString());
+  newState.loading = true;
   return newState;
 }

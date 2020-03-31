@@ -37,6 +37,7 @@ void _selectChange(Action action, Context<BugsScreenState> ctx) async {
     pole = selectIndex == 1 ? "southern" : "northern";
     log("pole: $pole");
     ctx.state.selectIndex = selectIndex;
+    ctx.dispatch(BugsScreenActionCreator.updateSelect());
   }
   ctx.dispatch(BugsScreenActionCreator.onPopulated(await getBug(pole)));
 }

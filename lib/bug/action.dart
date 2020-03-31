@@ -4,15 +4,15 @@ import 'package:animalcorssingwiki/model/pojo/FishData.dart';
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum BugsScreenAction { onRefresh, refreshing, onPopulated, selectChange }
+enum BugsScreenAction { onRefresh, updateSelect, onPopulated, selectChange }
 
 class BugsScreenActionCreator {
   static Action onRefresh(String pole) {
     return Action(BugsScreenAction.onRefresh, payload: pole);
   }
 
-  static Action refreshing() {
-    return const Action(BugsScreenAction.refreshing);
+  static Action updateSelect() {
+    return const Action(BugsScreenAction.updateSelect);
   }
 
   static Action onPopulated(List<BugData> fishData) {

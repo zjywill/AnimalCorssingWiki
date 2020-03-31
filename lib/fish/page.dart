@@ -9,15 +9,13 @@ import 'view.dart';
 class FishScreenPage extends Page<FishScreenState, Map<String, dynamic>> {
   FishScreenPage()
       : super(
-            initState: initState,
-            effect: buildEffect(),
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<FishScreenState>(
-                adapter: NoneConn<FishScreenState>() + FishAdapterAdapter(),
-                slots: <String, Dependent<FishScreenState>>{
-                }),
-            middleware: <Middleware<FishScreenState>>[
-            ],);
-
+          initState: initState,
+          effect: buildEffect(),
+          reducer: buildReducer(),
+          view: FishScreen().buildView,
+          dependencies: Dependencies<FishScreenState>(
+              adapter: NoneConn<FishScreenState>() + FishAdapterAdapter(),
+              slots: <String, Dependent<FishScreenState>>{}),
+          middleware: <Middleware<FishScreenState>>[],
+        );
 }

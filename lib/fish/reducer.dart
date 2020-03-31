@@ -11,6 +11,7 @@ Reducer<FishScreenState> buildReducer() {
   return asReducer(
     <Object, Reducer<FishScreenState>>{
       FishScreenAction.onPopulated: _onPopulated,
+      FishScreenAction.updateSelect: _updateSelect,
     },
   );
 }
@@ -30,6 +31,14 @@ FishScreenState _onPopulated(FishScreenState state, Action action) {
     }
     newState.list = list;
   }
+  newState.loading = false;
 
+  return newState;
+}
+
+FishScreenState _updateSelect(FishScreenState state, Action action) {
+  final FishScreenState newState = state.clone();
+  log("_updateSelect: " + state.selectIndex.toString());
+  newState.loading = true;
   return newState;
 }

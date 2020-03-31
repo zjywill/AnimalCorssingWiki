@@ -39,10 +39,25 @@ Widget buildView(
           ),
         ),
         Expanded(
-            child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4, childAspectRatio: 1.0),
-                itemCount: state.list?.length ?? 0,
-                itemBuilder: adapter.itemBuilder))
+            child: Stack(
+          children: <Widget>[
+            Visibility(
+              visible: !state.loading,
+              child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4, childAspectRatio: 1.0),
+                  itemCount: state.list?.length ?? 0,
+                  itemBuilder: adapter.itemBuilder),
+            ),
+            Visibility(
+                child: Container(
+                  alignment: Alignment.topCenter,
+                  child: CircularProgressIndicator(
+                    valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+                  ),
+                ),
+                visible: state.loading),
+          ],
+        ))
       ])));
 }
