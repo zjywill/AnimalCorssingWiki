@@ -11,6 +11,14 @@ Widget buildView(
     onTap: () {
       dispatch(FishItemActionCreator.showDetail(state.fishData));
     },
-    child: Image.network(state.fishData.image),
+    child: Container(
+      margin: EdgeInsets.all(8),
+      child: Image.network(state.fishData.image),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.black, width:2),
+        borderRadius: new BorderRadius.all(Radius.circular(12)),
+      ),
+    ),
   ));
 }

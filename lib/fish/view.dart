@@ -21,7 +21,7 @@ Widget buildView(
         Padding(
           padding:  EdgeInsets.symmetric(vertical: 20.0),
           child: CupertinoSegmentedControl<int>(
-            selectedColor: Colors.blue,
+            selectedColor: Color(0xff7bc094),
             borderColor: Colors.white,
             children: {
               0: Padding(padding: EdgeInsets.symmetric(horizontal: 20.0),child: Text('northern')),
