@@ -25,6 +25,7 @@ FishScreenState _onPopulated(FishScreenState state, Action action) {
     for (FishData data in fishDataList) {
       FishItemState fishItemState = FishItemState();
       fishItemState.fishData = data;
+      fishItemState.southern = state.selectIndex == 1;
       list.add(fishItemState);
     }
     newState.list = list;

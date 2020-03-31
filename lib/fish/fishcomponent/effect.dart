@@ -14,6 +14,9 @@ void _showDetail(Action action, Context<FishItemState> ctx) async {
   final String result = await showDialog(
       context: ctx.context,
       builder: (buildContext) {
-        return FishDetail(fishData: ctx.state.fishData);
+        return FishDetail(
+          fishData: ctx.state.fishData,
+          southern: ctx.state.southern,
+        );
       });
 }
