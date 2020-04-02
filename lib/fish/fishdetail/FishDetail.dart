@@ -15,7 +15,7 @@ class FishDetail extends Dialog {
 
     RoundedRectangleBorder _defaultDialogShape = RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(24.0)),
-        side: BorderSide(width: 2, color: Colors.black));
+        side: BorderSide(width: 2, color: Color(0xff174a75)));
 
     return AnimatedPadding(
       padding: MediaQuery.of(context).viewInsets +

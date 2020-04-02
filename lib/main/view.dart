@@ -28,7 +28,15 @@ Widget buildView(
                 onTap: () {
                   dispatch(HomeScreenActionCreator.showFish());
                 },
-                child: Image.asset('images/ic_fish.png', fit: BoxFit.scaleDown),
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text('Fish',
+                      style: TextStyle(
+                          fontFamily: 'Wood',
+                          color: Colors.brown[600],
+                          fontSize: 58,
+                          fontWeight: FontWeight.bold)),
+                ),
               ),
               color: Color(0xff76acda),
             ),
@@ -37,8 +45,15 @@ Widget buildView(
                 onTap: () {
                   dispatch(HomeScreenActionCreator.showBug());
                 },
-                child:
-                    Image.asset('images/ic_butterfly.png', fit: BoxFit.scaleDown),
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text('Bugs',
+                      style: TextStyle(
+                          fontFamily: 'Wood',
+                          color: Colors.brown[600],
+                          fontSize: 58,
+                          fontWeight: FontWeight.bold)),
+                ),
               ),
               color: Color(0xff92b05a),
             ),
