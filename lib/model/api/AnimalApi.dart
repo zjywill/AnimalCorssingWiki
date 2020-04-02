@@ -18,8 +18,11 @@ class AnimalApi {
 
   Future<Fish> fetchFish(pole) async {
     log('pole: $pole');
+    String contents = "";
     String cacheName = "fish$pole";
-    String contents = await readCache(cacheName);
+    if (Platform.isAndroid || Platform.isIOS) {
+      contents = await readCache(cacheName);
+    }
     if (contents.isNotEmpty) {
       return Fish.fromJson(json.decode(contents));
     }
@@ -28,7 +31,9 @@ class AnimalApi {
     log('fetchFish response $response');
     if (response.statusCode == 200) {
       log('fetchFish response 200');
-      await writeCache(cacheName, response.body);
+      if (Platform.isAndroid || Platform.isIOS) {
+        await writeCache(cacheName, response.body);
+      }
       return Fish.fromJson(json.decode(response.body));
     } else {
       log('fetchFish Failed');
@@ -39,7 +44,10 @@ class AnimalApi {
   Future<Bug> fetchBug(pole) async {
     log('pole: $pole');
     String cacheName = "bugs$pole";
-    String contents = await readCache(cacheName);
+    String contents = "";
+    if (Platform.isAndroid || Platform.isIOS) {
+      contents = await readCache(cacheName);
+    }
     if (contents.isNotEmpty) {
       return Bug.fromJson(json.decode(contents));
     }
@@ -48,7 +56,9 @@ class AnimalApi {
     log('fetchBug response $response');
     if (response.statusCode == 200) {
       log('fetchBug response 200');
-      await writeCache(cacheName, response.body);
+      if (Platform.isAndroid || Platform.isIOS) {
+        await writeCache(cacheName, response.body);
+      }
       return Bug.fromJson(json.decode(response.body));
     } else {
       log('fetchBug Failed');

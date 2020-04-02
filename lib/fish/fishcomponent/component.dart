@@ -8,12 +8,10 @@ import 'view.dart';
 class FishItemComponent extends Component<FishItemState> {
   FishItemComponent()
       : super(
-            effect: buildEffect(),
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<FishItemState>(
-                adapter: null,
-                slots: <String, Dependent<FishItemState>>{
-                }),);
-
+          effect: buildEffect(),
+          reducer: buildReducer(),
+          view: FishItem().buildView,
+          dependencies: Dependencies<FishItemState>(
+              adapter: null, slots: <String, Dependent<FishItemState>>{}),
+        );
 }

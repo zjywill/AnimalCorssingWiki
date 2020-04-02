@@ -19,8 +19,8 @@ class BugItemView {
         margin: EdgeInsets.all(8),
         child: buildCenter(state.bugData),
         decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(color: Colors.black, width: 2),
+          color: getBgColor(state.bugData),
+          border: Border.all(color: Color(0xff75953c), width: 2),
           borderRadius: new BorderRadius.all(Radius.circular(12)),
         ),
       ),
@@ -40,5 +40,50 @@ class BugItemView {
       );
     }
     return Image.network(bugData.image);
+  }
+
+  Color getBgColor(BugData bugData) {
+    var now = new DateTime.now();
+    log("now month" + now.month.toString());
+    Color bgColor = Colors.white;
+    switch (now.month) {
+      case 1:
+        bgColor = bugData.jan ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 2:
+        bgColor = bugData.feb ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 3:
+        bgColor = bugData.mar ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 4:
+        bgColor = bugData.apr ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 5:
+        bgColor = bugData.may ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 6:
+        bgColor = bugData.jun ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 7:
+        bgColor = bugData.jul ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 8:
+        bgColor = bugData.aug ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 9:
+        bgColor = bugData.sep ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 10:
+        bgColor = bugData.oct ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 11:
+        bgColor = bugData.nov ? Color(0xfff0e6b5) : Colors.white;
+        break;
+      case 12:
+        bgColor = bugData.dec ? Color(0xfff0e6b5) : Colors.white;
+        break;
+    }
+    return bgColor;
   }
 }
